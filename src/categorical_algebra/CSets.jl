@@ -444,6 +444,12 @@ function coerce_attrvar_component(
   return f
 end
 
+function coerce_attrvar_component(
+  ob::Symbol, f::F, d::TypeSet{T},cd::TypeSet{T′},
+  dom_size::Int, codom_size::Int) where {F <: Function, T,T′}
+  return f
+end
+
 function Base.getindex(α::ACSetTransformation, c) 
   get(α.components, c) do
     c ∈ attrtypes(acset_schema(dom(α))) || error("No object or attribute type with name $c")
